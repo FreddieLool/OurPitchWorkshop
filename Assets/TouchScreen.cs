@@ -30,6 +30,7 @@ public class TouchScreen : MonoBehaviour
         {
             drawingPool[i] = Instantiate(Ink);
             drawingPool[i].gameObject.SetActive(false);
+            
         }
     }
 
@@ -100,5 +101,6 @@ public class TouchScreen : MonoBehaviour
     private Vector2 BadGetMousePosition()
     {
         return _camera.ScreenToWorldPoint(Input.mousePosition + screenHeight);
+
     }
 }
