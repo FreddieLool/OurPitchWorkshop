@@ -1,26 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] obstaclePrefabs;
-    public float obstacleSpawnTime = 2f;
+    [SerializeField] private Transform obstacleRB;
+    public float obstacleSpawnDelay = 2f;
     public float obstacleSpeed = 3f;
-    private float spawnCooldown;
+    private float obstacleHeight;
 
-    private void Update()
+    private void Start()
     {
-        SpawnLoop();
+        StartCoroutine(ChangeHeight());
     }
 
-    private void SpawnLoop()
+    IEnumerator ChangeHeight()
     {
-        spawnCooldown += Time.deltaTime;
-        if (spawnCooldown >= obstacleSpawnTime) 
+        while (true)
         {
+            obstacleHeight = Random.Range(-4, 4);
+            obstacleRB.transform.position = new Vector3(9.5f, obstacleHeight, 0);
+            ChangeHeight();
             Spawn();
-            spawnCooldown = 0f;
+            yield return new WaitForSeconds(obstacleSpawnDelay);
         }
     }
 
@@ -31,5 +35,4 @@ public class Spawner : MonoBehaviour
         Rigidbody2D obstacleRB = spawnedObstacle.GetComponent<Rigidbody2D>();
         obstacleRB.velocity = Vector2.left * obstacleSpeed;
     }
-
 }
