@@ -5,13 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    private int sceneCounter = 0;
     public void Retry()
     {
-        SceneManager.LoadScene("AmirScene");
+        if (sceneCounter == 0)
+            SceneManager.LoadScene("AmirScene");
+        else if (sceneCounter == 1)
+            SceneManager.LoadScene("AmirScene2");
     }
 
     public void NextLevel()
     {
-        SceneManager.LoadScene("TestingScene");
+        sceneCounter++;
+        SceneManager.LoadScene("AmirScene2");
     }
 }
