@@ -7,8 +7,19 @@ public class CameraTracking : MonoBehaviour
     public Transform player;
     public Vector3 offSet;
 
+    bool playerIsAlive;
+
     private void Update()
     {
-        transform.position = new Vector3(player.position.x + offSet.x, player.position.y + offSet.y, player.position.z + offSet.z);
+        if (playerIsAlive)
+        {
+            transform.position = new Vector3(player.position.x + offSet.x, player.position.y + offSet.y, transform.position.z);
+
+        }
+    }
+
+    void TogglePlayerDeath()
+    {
+        playerIsAlive = !playerIsAlive;
     }
 }

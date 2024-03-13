@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class TouchScreen : MonoBehaviour
 {
+    private bool isEditor;
     [SerializeField] Camera _camera;
 
     [SerializeField] Transform Ink;
@@ -23,6 +24,11 @@ public class TouchScreen : MonoBehaviour
 
     private void Start()
     {
+#if UNITY_EDITOR
+        isEditor = true;
+#else
+        isEditor = false;
+#endif
         screenHeight = new(0, Screen.height / 2, 0);
 
         drawingPool = new Transform[poolSize];
@@ -30,17 +36,28 @@ public class TouchScreen : MonoBehaviour
         {
             drawingPool[i] = Instantiate(Ink);
             drawingPool[i].gameObject.SetActive(false);
-            
+
         }
     }
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (isEditor)
         {
-            draw = true;
+            if (Input.GetMouseButton(0))
+            {
+                draw = true;
+            }
+            else draw = false;
         }
-        else draw = false;
+        else
+        {
+            if (Input.touchCount > 0)
+            {
+                draw = true;
+            }
+            else draw = false;
+        }
     }
 
     private void FixedUpdate()
@@ -100,7 +117,14 @@ public class TouchScreen : MonoBehaviour
 
     private Vector2 BadGetMousePosition()
     {
-        return _camera.ScreenToWorldPoint(Input.mousePosition + screenHeight);
+        if (isEditor)
+        {
+            return _camera.ScreenToWorldPoint(Input.mousePosition + screenHeight);
 
+        }
+        else
+        {
+            return _camera.ScreenToWorldPoint(Input.GetTouch(0).position + (Vector2)screenHeight);
+        }
     }
 }
