@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Despawner : MonoBehaviour
 {
-    Renderer renderer;
-
+    [SerializeField] private Renderer renderer;
     private void Start()
     {
         renderer = GetComponent<Renderer>();
@@ -18,7 +17,7 @@ public class Despawner : MonoBehaviour
 
     private void Update()
     {
-        if (!renderer.isVisible)
+        if (!renderer.isVisible)  
             Despawn();
     }
 }

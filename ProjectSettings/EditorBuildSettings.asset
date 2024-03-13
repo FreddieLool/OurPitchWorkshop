@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AmirScene2.unity
     guid: f254c3d8a296c0444a64f1b1fc149246
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 07a3c49a9fa7e854d901ed3f14536158
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 3db8970bb0eecac47bebfbdf5d529201, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: c4086c8aada3efc4d84cbea96c598498, type: 2}
