@@ -6,9 +6,10 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public static event Action<int> PositionUpdate;
+    public static event Action PlayerDied;
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.transform.tag == "Obstacle")
+        if (CompareTag("Obstacle"))
         {
             Destroy(gameObject);
         }
@@ -16,7 +17,11 @@ public class PlayerCollision : MonoBehaviour
 
     private void FixedUpdate()
     {
-        PositionUpdate.Invoke((int)transform.position.x);
+        PositionUpdate?.Invoke((int)transform.position.x);
     }
 
+    private void OnDestroy()
+    {
+        PlayerDied?.Invoke();
+    }
 }
