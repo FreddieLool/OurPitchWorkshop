@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
         while (true)
         {
             obstacleHeight = Random.Range(-4, 4);
-            obstacleRB.transform.position = new Vector3(9.5f, obstacleHeight, 0);
+            obstacleRB.transform.position = new Vector3(transform.position.x, obstacleHeight, 0);
             ChangeHeight();
             Spawn();
             yield return new WaitForSeconds(obstacleSpawnDelay);
