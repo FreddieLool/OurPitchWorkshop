@@ -287,8 +287,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 600}
+  m_AnchoredPosition: {x: 29.687, y: 165}
+  m_SizeDelta: {x: 540.6263, y: 135.8488}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &249105233
 MonoBehaviour:
@@ -310,8 +310,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 59c53778f95290741a3180a04c1104a5, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -667,6 +667,18 @@ PrefabInstance:
     - target: {fileID: 7746448878474858130, guid: 93e7bcac00d69f2409e54de623c2be15, type: 3}
       propertyPath: m_GravityScale
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166895647595792298, guid: 93e7bcac00d69f2409e54de623c2be15, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166895647595792298, guid: 93e7bcac00d69f2409e54de623c2be15, type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9166895647595792298, guid: 93e7bcac00d69f2409e54de623c2be15, type: 3}
+      propertyPath: InitialModule.gravitySource
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
