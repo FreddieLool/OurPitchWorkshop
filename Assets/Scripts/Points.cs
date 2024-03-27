@@ -8,14 +8,25 @@ public class Points : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] private TextMeshProUGUI textMeshPro;
     private int distance;
+
+    private void Start()
+    {
+        PlayerCollision.PositionUpdate += calculate;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerCollision.PositionUpdate -= calculate;
+    }
+
     void FixedUpdate()
     {
-        
+
         textMeshPro.text = "Score: " + distance.ToString();
     }
 
     public void calculate(int calculator)
     {
-        distance = Mathf.Max((int)player.transform.position.x, calculator);
+        distance = Mathf.Max(distance, calculator);
     }
 }

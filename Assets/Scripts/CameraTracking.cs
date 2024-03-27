@@ -7,7 +7,20 @@ public class CameraTracking : MonoBehaviour
     public Transform player;
     public Vector3 offSet;
 
-    bool playerIsAlive;
+    bool playerIsAlive = true;
+
+    private void Start()
+    {
+        PlayerCollision.PlayerDied += PlayerDeath;
+        SceneLoader.GameStarted += PlayerAlive;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerCollision.PlayerDied -= PlayerDeath;
+        SceneLoader.GameStarted -= PlayerAlive;
+        
+    }
 
     private void Update()
     {
@@ -18,8 +31,13 @@ public class CameraTracking : MonoBehaviour
         }
     }
 
-    void TogglePlayerDeath()
+    void PlayerDeath()
     {
-        playerIsAlive = !playerIsAlive;
+        playerIsAlive = false;
+    }
+
+    void PlayerAlive()
+    {
+        playerIsAlive = true;
     }
 }

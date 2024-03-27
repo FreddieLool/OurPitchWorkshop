@@ -7,13 +7,6 @@ public class PlayerCollision : MonoBehaviour
 {
     public static event Action<int> PositionUpdate;
     public static event Action PlayerDied;
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (CompareTag("Obstacle"))
-        {
-            Destroy(gameObject);
-        }
-    }
 
     private void FixedUpdate()
     {

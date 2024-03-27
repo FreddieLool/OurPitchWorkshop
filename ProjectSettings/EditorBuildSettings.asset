@@ -6,23 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 3fc8acdd13e6c734bafef6554d6fdbcd
-  - enabled: 1
-    path: Assets/Scenes/AmirScene.unity
-    guid: 6af7a4509d4a9f342bcc37b7100095f9
-  - enabled: 1
-    path: Assets/Scenes/Lose Scene.unity
-    guid: bacdf6ee24edba8418e794ae44c5a867
-  - enabled: 1
-    path: Assets/Scenes/Win Scene.unity
-    guid: 1d728a9f4231c8d4cac2f6becd6a3a9f
-  - enabled: 1
-    path: Assets/Scenes/AmirScene2.unity
-    guid: f254c3d8a296c0444a64f1b1fc149246
-  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 07a3c49a9fa7e854d901ed3f14536158
+  - enabled: 1
+    path: Assets/Scenes/TestingScene.unity
+    guid: 619abd52c4f9c254ba4ae8f2d95d42e4
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 3db8970bb0eecac47bebfbdf5d529201, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: c4086c8aada3efc4d84cbea96c598498, type: 2}
